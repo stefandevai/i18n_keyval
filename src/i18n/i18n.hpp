@@ -27,6 +27,11 @@ namespace i18n
     return std::string(key);
   }
 
+  std::string t(std::string_view key)
+  {
+    return registry::instance().translate(key.data(), key.size());
+  }
+
   template <typename T>
   void initialize_translator()
   {
