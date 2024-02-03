@@ -107,6 +107,14 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(sol2)
 
+message(STATUS "Downloading pugixml")
+FetchContent_Declare(
+    pugixml
+    GIT_REPOSITORY https://github.com/zeux/pugixml.git
+    GIT_TAG db78afc2b7d8f043b4bc6b185635d949ea2ed2a8 # v1.14
+)
+FetchContent_MakeAvailable(pugixml)
+
 message(STATUS "Copying data files")
 file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -121,6 +129,7 @@ SET(
     translators/nlohmann_json.cpp
     translators/rapidjson.cpp
     translators/sol2.cpp
+    translators/pugixml.cpp
 )
 
 include_directories(${RAPIDJSON_INCLUDE_DIRS} ${LUA_INCLUDE_DIRS})
@@ -136,6 +145,7 @@ target_link_libraries(
     RapidJSON
     lua::lua
     sol2::sol2
+    pugixml::pugixml
 )
 
 add_test(NAME i18n_tests COMMAND i18n_tests)

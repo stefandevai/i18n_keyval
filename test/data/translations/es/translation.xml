@@ -1,0 +1,22 @@
+<moon>Luna</moon>
+<moon_plural>Lunas</moon_plural>
+<sun>Sol</sun>
+<eating_orange>Comiendo {count} naranja</eating_orange>
+<eating_orange_plural>Comiendo {count} naranjas</eating_orange_plural>
+
+<colors>
+  <black>Negro</black>
+  <red>Rojo</red>
+</colors>
+
+<animals>
+  <felines>
+    <cat>Gato</cat>
+    <tiger>Tigre</tiger>
+  </felines>
+  <reptiles>
+    <crocodile>Cocodrilo</crocodile>
+    <snake>Víbora</snake>
+  </reptiles>
+</animals>
+

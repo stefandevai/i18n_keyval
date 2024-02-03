@@ -1,0 +1,21 @@
+<moon>Moon</moon>
+<moon_plural>Moons</moon_plural>
+<sun>Sun</sun>
+<eating_orange>Eating {count} orange</eating_orange>
+<eating_orange_plural>Eating {count} oranges</eating_orange_plural>
+
+<colors>
+  <black>Black</black>
+  <red>Red</red>
+</colors>
+
+<animals>
+  <felines>
+    <cat>Cat</cat>
+    <tiger>Tiger</tiger>
+  </felines>
+  <reptiles>
+    <crocodile>Crocodile</crocodile>
+    <snake>Snake</snake>
+  </reptiles>
+</animals>
