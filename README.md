@@ -19,7 +19,7 @@ Easy to use and customizable internationalization library.
 - [x] nlohman/json (json)
 - [x] rapidjson (json)
 - [x] sol2 (lua)
-- [ ] pugixml (xml)
+- [x] pugixml (xml)
 - [ ] tinyxml2 (xml)
 
 # Usage
