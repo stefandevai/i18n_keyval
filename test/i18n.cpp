@@ -1,18 +1,15 @@
-#include <unordered_map>
-#include <string>
 #include <catch2/catch_test_macros.hpp>
 #include <i18n/i18n.hpp>
+#include <string>
+#include <unordered_map>
 
 struct translator
 {
   std::string locale{};
-  std::unordered_map<std::string, std::string> en_translations{{ "moon", "Moon" }};
-  std::unordered_map<std::string, std::string> es_translations{{ "moon", "Luna" }};
+  std::unordered_map<std::string, std::string> en_translations{{"moon", "Moon"}};
+  std::unordered_map<std::string, std::string> es_translations{{"moon", "Luna"}};
 
-  void set_locale(const std::string& locale)
-  {
-    this->locale = locale;
-  }
+  void set_locale(const std::string& locale) { this->locale = locale; }
 
   std::string translate(const char* key, std::size_t) const
   {
