@@ -1,0 +1,15 @@
+BasedOnStyle: Google
+UseTab: Never
+IndentWidth: 2
+ColumnLimit: 120
+Language: Cpp
+DerivePointerAlignment: false
+PointerAlignment: Left
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: false
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: false
+BinPackArguments: false
+BinPackParameters: false
+AlignTrailingComments: false
