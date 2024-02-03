@@ -105,7 +105,7 @@ Gato
 ```
 
 ## Custom translator
-To use a custom translator, you have to provide any class that implements a `set_locale` and `translate` methods. This allows you retrieve strings with other methods such as xml, lua, other json library or a custom container.
+To use a custom translator, you have to provide any class that implements a `set_locale` and `translate` methods. This allows you to retrieve strings with other methods such as xml, lua, other json library or a custom container.
 
 **Example:**
 ```cpp
