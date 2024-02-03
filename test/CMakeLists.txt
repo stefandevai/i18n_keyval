@@ -17,8 +17,9 @@ else()
 endif()
 
 file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/test/data/dummy.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-add_executable(i18n_tests translators/basic.cpp translators/nlohmann_json.cpp)
+add_executable(i18n_tests i18n.cpp registry.cpp split_iterator.cpp utils.cpp translators/basic.cpp translators/nlohmann_json.cpp)
 
 target_link_libraries(
     i18n_tests
