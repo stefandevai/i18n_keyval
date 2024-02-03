@@ -11,7 +11,7 @@ Easy to use and customizable internationalization library.
 - [x] Free function usage
 - [x] Nested json
 - [x] Plurals
-- [ ] Plural interpolation
+- [x] Plural interpolation
 - [ ] Thread safety
 
 # Translators

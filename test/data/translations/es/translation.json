@@ -2,6 +2,8 @@
   "moon": "Luna",
   "moon_plural": "Lunas",
   "sun": "Sol",
+  "eating_orange": "Comiendo {count} naranja",
+  "eating_orange_plural": "Comiendo {count} naranjas",
 
   "colors": {
     "black": "Negro",
