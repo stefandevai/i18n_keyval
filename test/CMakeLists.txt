@@ -26,10 +26,10 @@ file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 SET(
     I18N_TEST_SOURCES
-    i18n.cpp
-    registry.cpp
-    split_iterator.cpp
-    utils.cpp
+    core/api.cpp
+    core/registry.cpp
+    util/split_iterator.cpp
+    util/file.cpp
     translators/basic.cpp
     translators/nlohmann_json.cpp
 )

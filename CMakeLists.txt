@@ -6,9 +6,9 @@ option(I18N_BUILD_TESTS "Build tests" OFF)
 
 SET(
     I18N_SOURCES
-    src/i18n/i18n.cpp
-    src/i18n/registry.cpp
-    src/i18n/utils.cpp
+    src/i18n/core/api.cpp
+    src/i18n/core/registry.cpp
+    src/i18n/util/file.cpp
 )
 
 add_library(i18n ${I18N_SOURCES})

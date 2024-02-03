@@ -4,7 +4,7 @@
 #include <iterator>
 #include <string>
 
-namespace i18n
+namespace i18n::util
 {
 template <char delimeter = '.'>
 class split_iterator

@@ -3,7 +3,7 @@
 #include <memory>
 #include <string>
 
-#include "translator.hpp"
+#include "i18n/core/translator.hpp"
 
 namespace i18n
 {

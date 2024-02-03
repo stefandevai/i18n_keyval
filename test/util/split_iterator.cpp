@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/split_iterator.hpp>
+#include <i18n/util/split_iterator.hpp>
 
 TEST_CASE("split_iterator", "[core]")
 {
@@ -7,7 +7,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("splitting empty")
   {
-    i18n::split_iterator it{""};
+    i18n::util::split_iterator it{""};
 
     for (; !(*it).empty(); ++it)
     {
@@ -19,7 +19,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("splitting one part")
   {
-    i18n::split_iterator it{"animals"};
+    i18n::util::split_iterator it{"animals"};
 
     for (; !(*it).empty(); ++it)
     {
@@ -32,7 +32,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("splitting two parts")
   {
-    i18n::split_iterator it{"animals.felines"};
+    i18n::util::split_iterator it{"animals.felines"};
 
     for (; !(*it).empty(); ++it)
     {
@@ -46,7 +46,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("splitting three parts")
   {
-    i18n::split_iterator it{"animals.felines.cat"};
+    i18n::util::split_iterator it{"animals.felines.cat"};
 
     for (; !(*it).empty(); ++it)
     {
@@ -61,7 +61,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("using postfix increment")
   {
-    i18n::split_iterator it{"animals.felines.cat"};
+    i18n::util::split_iterator it{"animals.felines.cat"};
 
     for (; !(*it).empty(); it++)
     {
@@ -76,7 +76,7 @@ TEST_CASE("split_iterator", "[core]")
 
   SECTION("splitting with custom delimeter")
   {
-    i18n::split_iterator<':'> it{"animals:felines:cat"};
+    i18n::util::split_iterator<':'> it{"animals:felines:cat"};
 
     for (; !(*it).empty(); ++it)
     {

@@ -1,6 +1,6 @@
-#include "./utils.hpp"
+#include "i18n/util/file.hpp"
 
-namespace i18n::utils
+namespace i18n::util
 {
 std::string read_file(const std::filesystem::path filepath)
 {

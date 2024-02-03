@@ -1,4 +1,4 @@
-#include "i18n/i18n.hpp"
+#include "i18n/core/api.hpp"
 
 namespace i18n
 {
