@@ -9,11 +9,6 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test-clang:
-    runs-on: "ubuntu-latest"
-    steps:
-      - name: Get clang version
-        run: clang --version
   build:
     runs-on: ${{ matrix.os }}
 

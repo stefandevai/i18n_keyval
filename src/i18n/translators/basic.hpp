@@ -18,7 +18,7 @@ class basic
 
   void set_locale(const std::string& locale)
   {
-    if (!_translations.contains(locale))
+    if (_translations.find(locale) == _translations.end())
     {
       return;
     }
@@ -37,7 +37,7 @@ class basic
 
     const auto& values = *_values;
 
-    if (!values.contains(key))
+    if (values.find(key) == values.end())
     {
       return std::string{view};
     }
