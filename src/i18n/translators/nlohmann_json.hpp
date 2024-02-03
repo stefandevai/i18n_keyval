@@ -2,17 +2,19 @@
 
 #include <filesystem>
 #include <nlohmann/json.hpp>
-#include "i18n/utils.hpp"
+
 #include "i18n/split_iterator.hpp"
+#include "i18n/utils.hpp"
 
 namespace i18n::translators
 {
 class nlohmann_json
 {
-public:
+ public:
   nlohmann_json(std::filesystem::path directory_path_ = default_directory_name)
-    : _directory_path(std::move(directory_path_))
-  { }
+      : _directory_path(std::move(directory_path_))
+  {
+  }
 
   void set_locale(const std::string& locale)
   {
@@ -55,9 +57,9 @@ public:
     return current_object->get<std::string>();
   }
 
-private:
+ private:
   nlohmann::json _object;
   std::string _file_extension = ".json";
   std::filesystem::path _directory_path;
 };
-}
+}  // namespace i18n::translators

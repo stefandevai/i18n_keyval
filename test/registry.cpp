@@ -1,7 +1,8 @@
-#include <i18n/registry.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <i18n/registry.hpp>
 
-TEST_CASE("registry", "[core]") {
+TEST_CASE("registry", "[core]")
+{
   i18n::registry::instance().set_locale("");
   auto locale = i18n::registry::instance().locale;
 

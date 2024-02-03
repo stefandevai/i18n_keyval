@@ -1,22 +1,20 @@
 #pragma once
 
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
 
 namespace i18n
 {
-  using translation_table = std::unordered_map<std::string, std::string>;
-  using translations = std::unordered_map<std::string, translation_table>;
-}
+using translation_table = std::unordered_map<std::string, std::string>;
+using translations = std::unordered_map<std::string, translation_table>;
+}  // namespace i18n
 
 namespace i18n::translators
 {
 class basic
 {
-public:
-  basic(translations translations_)
-    : _translations(std::move(translations_))
-  { }
+ public:
+  basic(translations translations_) : _translations(std::move(translations_)) {}
 
   void set_locale(const std::string& locale)
   {
@@ -47,8 +45,8 @@ public:
     return values.at(key);
   }
 
-private:
+ private:
   translations _translations;
   translation_table* _values = nullptr;
 };
-}
+}  // namespace i18n::translators

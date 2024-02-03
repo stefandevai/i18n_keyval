@@ -1,7 +1,8 @@
-#include <i18n/i18n.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <i18n/i18n.hpp>
 
-TEST_CASE("i18n", "[core]") {
+TEST_CASE("i18n", "[core]")
+{
   i18n::set_locale("");
   auto locale = i18n::locale();
 
@@ -12,4 +13,3 @@ TEST_CASE("i18n", "[core]") {
 
   REQUIRE(locale == "es");
 }
-

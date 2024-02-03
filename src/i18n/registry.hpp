@@ -1,26 +1,27 @@
 #pragma once
 
-#include <string>
 #include <memory>
+#include <string>
+
 #include "translator.hpp"
 
 namespace i18n
 {
-  class registry
-  {
-    public:
-      std::string locale = "";
+class registry
+{
+ public:
+  std::string locale = "";
 
-      registry() = default;
-      registry(const registry&) = delete;
-      registry& operator=(const registry&) = delete;
+  registry() = default;
+  registry(const registry&) = delete;
+  registry& operator=(const registry&) = delete;
 
-      void initialize_translator(std::shared_ptr<translator> translator_);
-      std::string translate(const char* composed_key, const std::size_t length);
-      void set_locale(std::string locale_);
-      static registry& instance();
+  void initialize_translator(std::shared_ptr<translator> translator_);
+  std::string translate(const char* composed_key, const std::size_t length);
+  void set_locale(std::string locale_);
+  static registry& instance();
 
-    private:
-      std::shared_ptr<translator> _translator = nullptr;
-  };
-}
+ private:
+  std::shared_ptr<translator> _translator = nullptr;
+};
+}  // namespace i18n

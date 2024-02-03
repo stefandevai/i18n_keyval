@@ -1,19 +1,14 @@
+#include <catch2/catch_test_macros.hpp>
 #include <i18n/i18n.hpp>
 #include <i18n/translators/basic.hpp>
-#include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("translator::basic", "[translators]") {
+TEST_CASE("translator::basic", "[translators]")
+{
   using namespace i18n::literals;
 
   const i18n::translations translations{
-    {"en", {
-      {"moon", "Moon"},
-      {"sun", "Sun"}
-    }},
-    {"es", {
-      {"moon", "Luna"},
-      {"sun", "Sol"}
-    }},
+      {"en", {{"moon", "Moon"}, {"sun", "Sun"}}},
+      {"es", {{"moon", "Luna"}, {"sun", "Sol"}}},
   };
 
   i18n::set_locale("");

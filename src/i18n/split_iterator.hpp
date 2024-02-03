@@ -20,14 +20,12 @@ class split_iterator
   std::size_t _length = 0;
   std::size_t _index = 0;
 
-  split_iterator(std::string_view value_) : _value(value_)
-  {
-    operator++();
-  }
+  split_iterator(std::string_view value_) : _value(value_) { operator++(); }
 
   split_iterator(const split_iterator& other)
-    : _value(other._value), _from(other._from), _length(other._length), _index(other._index)
-  {}
+      : _value(other._value), _from(other._from), _length(other._length), _index(other._index)
+  {
+  }
 
   split_iterator& operator=(const split_iterator& rhs)
   {
@@ -35,10 +33,7 @@ class split_iterator
     return *this;
   }
 
-  std::string_view operator*()
-  {
-    return _value.substr(_from, _length);
-  }
+  std::string_view operator*() { return _value.substr(_from, _length); }
 
   split_iterator& operator++()
   {
@@ -83,10 +78,7 @@ class split_iterator
     return _value == rhs._value && _from == rhs.from && _length == rhs.length;
   }
 
-  bool operator!=(const split_iterator& rhs) const
-  {
-    return !(*this == rhs);
-  }
+  bool operator!=(const split_iterator& rhs) const { return !(*this == rhs); }
 };
 
-}  // namespace dl
+}  // namespace i18n

@@ -1,10 +1,12 @@
-#include <i18n/split_iterator.hpp>
 #include <catch2/catch_test_macros.hpp>
+#include <i18n/split_iterator.hpp>
 
-TEST_CASE("split_iterator", "[core]") {
+TEST_CASE("split_iterator", "[core]")
+{
   std::vector<std::string> parts{};
 
-  SECTION("splitting empty") {
+  SECTION("splitting empty")
+  {
     i18n::split_iterator it{""};
 
     for (; !(*it).empty(); ++it)
@@ -15,7 +17,8 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts.empty());
   }
 
-  SECTION("splitting one part") {
+  SECTION("splitting one part")
+  {
     i18n::split_iterator it{"animals"};
 
     for (; !(*it).empty(); ++it)
@@ -27,7 +30,8 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts[0] == "animals");
   }
 
-  SECTION("splitting two parts") {
+  SECTION("splitting two parts")
+  {
     i18n::split_iterator it{"animals.felines"};
 
     for (; !(*it).empty(); ++it)
@@ -40,7 +44,8 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts[1] == "felines");
   }
 
-  SECTION("splitting three parts") {
+  SECTION("splitting three parts")
+  {
     i18n::split_iterator it{"animals.felines.cat"};
 
     for (; !(*it).empty(); ++it)
@@ -54,7 +59,8 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts[2] == "cat");
   }
 
-  SECTION("using postfix increment") {
+  SECTION("using postfix increment")
+  {
     i18n::split_iterator it{"animals.felines.cat"};
 
     for (; !(*it).empty(); it++)
@@ -68,7 +74,8 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts[2] == "cat");
   }
 
-  SECTION("splitting with custom delimeter") {
+  SECTION("splitting with custom delimeter")
+  {
     i18n::split_iterator<':'> it{"animals:felines:cat"};
 
     for (; !(*it).empty(); ++it)
@@ -82,4 +89,3 @@ TEST_CASE("split_iterator", "[core]") {
     REQUIRE(parts[2] == "cat");
   }
 }
-

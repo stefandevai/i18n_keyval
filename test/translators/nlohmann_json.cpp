@@ -1,8 +1,9 @@
+#include <catch2/catch_test_macros.hpp>
 #include <i18n/i18n.hpp>
 #include <i18n/translators/nlohmann_json.hpp>
-#include <catch2/catch_test_macros.hpp>
 
-TEST_CASE("translator::nlohmann_json", "[translators]") {
+TEST_CASE("translator::nlohmann_json", "[translators]")
+{
   using namespace i18n::literals;
 
   i18n::set_locale("");
@@ -125,7 +126,8 @@ TEST_CASE("translator::nlohmann_json", "[translators]") {
   REQUIRE(i18n::t("animals.reptiles.lizard") == "animals.reptiles.lizard");
 }
 
-TEST_CASE("translator::nlohmann_json (custom directory)", "[translators]") {
+TEST_CASE("translator::nlohmann_json (custom directory)", "[translators]")
+{
   using namespace i18n::literals;
 
   i18n::set_locale("en");
