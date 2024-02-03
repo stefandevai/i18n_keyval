@@ -1,0 +1,21 @@
+{
+  "moon": "Luna",
+  "sun": "Sol",
+
+  "colors": {
+    "black": "Negro",
+    "red": "Rojo"
+  },
+
+  "animals": {
+    "felines": {
+      "cat": "Gato",
+      "tiger": "Tigre"
+    },
+    "reptiles": {
+      "crocodile": "Cocodrilo",
+      "snake": "Víbora"
+    }
+  }
+}
+

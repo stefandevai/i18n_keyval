@@ -12,6 +12,11 @@ class nlohmann_json
 public:
   void set_locale(const std::string& locale)
   {
+    if (locale.empty())
+    {
+      return;
+    }
+
     const std::filesystem::path full_path = default_directory_name / locale / (default_file_name + _file_extension);
     auto json_string = i18n::utils::read_file(full_path);
     _object = nlohmann::json::parse(std::move(json_string));

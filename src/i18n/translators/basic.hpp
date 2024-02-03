@@ -11,10 +11,10 @@ namespace i18n
 
 namespace i18n::translators
 {
-class basic_translator
+class basic
 {
 public:
-  basic_translator(translations translations_)
+  basic(translations translations_)
     : _translations(std::move(translations_))
   { }
 

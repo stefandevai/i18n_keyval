@@ -1,0 +1,20 @@
+{
+  "moon": "Moon",
+  "sun": "Sun",
+
+  "colors": {
+    "black": "Black",
+    "red": "Red"
+  },
+
+  "animals": {
+    "felines": {
+      "cat": "Cat",
+      "tiger": "Tiger"
+    },
+    "reptiles": {
+      "crocodile": "Crocodile",
+      "snake": "Snake"
+    }
+  }
+}
