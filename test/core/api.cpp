@@ -9,7 +9,10 @@ struct translator
   std::unordered_map<std::string, std::string> en_translations{{"moon", "Moon"}};
   std::unordered_map<std::string, std::string> es_translations{{"moon", "Luna"}};
 
-  void set_locale(const std::string& locale) { this->locale = locale; }
+  void set_locale(const std::string& locale)
+  {
+    this->locale = locale;
+  }
 
   std::string translate(const char* key, std::size_t) const
   {

@@ -13,7 +13,10 @@ class translator
   {
   }
 
-  void set_locale(const std::string& locale) { return _translator->set_locale(locale); }
+  void set_locale(const std::string& locale)
+  {
+    return _translator->set_locale(locale);
+  }
 
   std::string translate(const char* composed_key, const std::size_t length)
   {
@@ -32,7 +35,10 @@ class translator
   {
     model(T object_) : _object(std::move(object_)) {}
 
-    void set_locale(const std::string& locale) { return _object.set_locale(locale); }
+    void set_locale(const std::string& locale)
+    {
+      return _object.set_locale(locale);
+    }
 
     std::string translate(const char* composed_key, const std::size_t length) const
     {

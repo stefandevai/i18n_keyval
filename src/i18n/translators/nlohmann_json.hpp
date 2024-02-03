@@ -3,8 +3,8 @@
 #include <filesystem>
 #include <nlohmann/json.hpp>
 
-#include "i18n/util/split_iterator.hpp"
 #include "i18n/util/file.hpp"
+#include "i18n/util/split_iterator.hpp"
 
 namespace
 {

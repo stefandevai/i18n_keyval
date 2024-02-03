@@ -23,4 +23,4 @@ std::string read_file(const std::filesystem::path filepath)
   delete[] data;
   return result;
 }
-}  // namespace i18n::utils
+}  // namespace i18n::util

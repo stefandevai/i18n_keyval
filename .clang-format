@@ -13,3 +13,6 @@ AlignConsecutiveAssignments: false
 BinPackArguments: false
 BinPackParameters: false
 AlignTrailingComments: false
+AllowShortBlocksOnASingleLine: Never
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: Never
