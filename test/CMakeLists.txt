@@ -1,7 +1,9 @@
 cmake_minimum_required(VERSION 3.19)
 
 project(i18n_tests CXX)
+include(CTest)
 
+enable_testing()
 include(FetchContent)
 
 message(STATUS "Downloading catch2")
@@ -44,3 +46,4 @@ target_link_libraries(
     Catch2::Catch2WithMain
 )
 
+add_test(NAME i18n_tests COMMAND i18n_tests)

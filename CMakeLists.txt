@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
 
 project(i18n VERSION 0.1.0 LANGUAGES CXX)
+include(CTest)
+enable_testing()
 
 option(I18N_BUILD_TESTS "Build tests" OFF)
 
@@ -26,5 +28,7 @@ target_include_directories(i18n PUBLIC "src")
 
 if (I18N_BUILD_TESTS)
     message(STATUS "Building tests")
+    enable_testing()
     add_subdirectory("test")
+    add_test(NAME i18n_tests COMMAND i18n_tests)
 endif()
