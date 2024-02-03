@@ -12,7 +12,7 @@ TEST_CASE("translator::basic", "[translators]")
   };
 
   i18n::set_locale("");
-  i18n::initialize_translator<i18n::translators::basic>(translations);
+  i18n::initialize_translator(translations);
 
   REQUIRE("moon"_t == "moon");
   REQUIRE("sun"_t == "sun");

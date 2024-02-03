@@ -4,6 +4,7 @@
 #include <string>
 
 #include "i18n/registry.hpp"
+#include "i18n/translators/basic.hpp"
 
 namespace i18n
 {
@@ -13,7 +14,7 @@ const std::string default_file_name = "translation";
 
 std::string t(std::string_view key);
 
-template <typename T, typename... Args>
+template <typename T = translators::basic, typename... Args>
 void initialize_translator(Args&&... args)
 {
   auto translator_ = std::make_shared<translator>(T{std::forward<Args>(args)...});
