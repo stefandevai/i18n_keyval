@@ -10,6 +10,10 @@ namespace i18n::translators
 class nlohmann_json
 {
 public:
+  nlohmann_json(std::filesystem::path directory_path_ = default_directory_name)
+    : _directory_path(std::move(directory_path_))
+  { }
+
   void set_locale(const std::string& locale)
   {
     if (locale.empty())
@@ -54,5 +58,6 @@ public:
 private:
   nlohmann::json _object;
   std::string _file_extension = ".json";
+  std::filesystem::path _directory_path;
 };
 }

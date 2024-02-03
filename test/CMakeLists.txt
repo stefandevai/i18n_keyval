@@ -22,7 +22,7 @@ FetchContent_MakeAvailable(nlohmann_json)
 
 message(STATUS "Copying data files")
 file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
-file(COPY ${CMAKE_SOURCE_DIR}/test/data/dummy.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 SET(
     I18N_TEST_SOURCES
