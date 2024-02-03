@@ -37,6 +37,76 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(RapidJSON)
 set(RAPIDJSON_INCLUDE_DIRS ${RapidJSON_SOURCE_DIR}/include)
 
+message(STATUS "Downloading lua")
+PROJECT(lua
+   LANGUAGES C
+)
+FetchContent_Declare(
+    Lua
+    GIT_REPOSITORY https://github.com/lua/lua.git
+    GIT_TAG 6443185167c77adcc8552a3fee7edab7895db1a9 # v5.4.6
+)
+FetchContent_MakeAvailable(Lua)
+set(Lua_SOURCE_DIR ${CMAKE_SOURCE_DIR}/build/_deps/lua-src)
+set(LUA_INCLUDE_DIRS ${Lua_SOURCE_DIR})
+
+add_library(lua
+  ${Lua_SOURCE_DIR}/lapi.c
+  ${Lua_SOURCE_DIR}/lauxlib.c
+  ${Lua_SOURCE_DIR}/lbaselib.c
+  ${Lua_SOURCE_DIR}/lcode.c
+  ${Lua_SOURCE_DIR}/lcorolib.c
+  ${Lua_SOURCE_DIR}/lctype.c
+  ${Lua_SOURCE_DIR}/ldblib.c
+  ${Lua_SOURCE_DIR}/ldebug.c
+  ${Lua_SOURCE_DIR}/ldo.c
+  ${Lua_SOURCE_DIR}/ldump.c
+  ${Lua_SOURCE_DIR}/lfunc.c
+  ${Lua_SOURCE_DIR}/lgc.c
+  ${Lua_SOURCE_DIR}/linit.c
+  ${Lua_SOURCE_DIR}/liolib.c
+  ${Lua_SOURCE_DIR}/llex.c
+  ${Lua_SOURCE_DIR}/lmathlib.c
+  ${Lua_SOURCE_DIR}/lmem.c
+  ${Lua_SOURCE_DIR}/loadlib.c
+  ${Lua_SOURCE_DIR}/lobject.c
+  ${Lua_SOURCE_DIR}/lopcodes.c
+  ${Lua_SOURCE_DIR}/loslib.c
+  ${Lua_SOURCE_DIR}/lparser.c
+  ${Lua_SOURCE_DIR}/lstate.c
+  ${Lua_SOURCE_DIR}/lstring.c
+  ${Lua_SOURCE_DIR}/lstrlib.c
+  ${Lua_SOURCE_DIR}/ltable.c
+  ${Lua_SOURCE_DIR}/ltablib.c
+  ${Lua_SOURCE_DIR}/ltests.c
+  ${Lua_SOURCE_DIR}/ltm.c
+  ${Lua_SOURCE_DIR}/lua.c
+  ${Lua_SOURCE_DIR}/lundump.c
+  ${Lua_SOURCE_DIR}/lutf8lib.c
+  ${Lua_SOURCE_DIR}/lvm.c
+  ${Lua_SOURCE_DIR}/lzio.c
+)
+add_library(lua::lua ALIAS lua)
+
+if (WIN32)
+  target_compile_definitions(lua PRIVATE LUA_USE_WINDOWS)
+endif()
+
+target_include_directories(lua PUBLIC lua)
+if (UNIX)
+  target_compile_definitions(lua PRIVATE LUA_USE_LINUX)
+  target_link_libraries(lua PRIVATE dl)
+endif()
+
+message(STATUS "Downloading sol2")
+set(SOL2_BUILD_LUA FALSE CACHE BOOL "Always build Lua, do not search for it in the system")
+FetchContent_Declare(
+    sol2
+    GIT_REPOSITORY https://github.com/ThePhD/sol2.git
+    GIT_TAG dca62a0f02bb45f3de296de3ce00b1275eb34c25 # v3.3.1
+)
+FetchContent_MakeAvailable(sol2)
+
 message(STATUS "Copying data files")
 file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -50,9 +120,10 @@ SET(
     translators/basic.cpp
     translators/nlohmann_json.cpp
     translators/rapidjson.cpp
+    translators/sol2.cpp
 )
 
-include_directories(${RAPIDJSON_INCLUDE_DIRS})
+include_directories(${RAPIDJSON_INCLUDE_DIRS} ${LUA_INCLUDE_DIRS})
 
 add_executable(i18n_tests ${I18N_TEST_SOURCES})
 
@@ -63,6 +134,8 @@ target_link_libraries(
     nlohmann_json::nlohmann_json
     Catch2::Catch2WithMain
     RapidJSON
+    lua::lua
+    sol2::sol2
 )
 
 add_test(NAME i18n_tests COMMAND i18n_tests)
