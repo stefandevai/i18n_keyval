@@ -9,6 +9,11 @@ on:
     branches: [ "main" ]
 
 jobs:
+  test-clang:
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Get clang version
+        run: clang --version
   build:
     runs-on: ${{ matrix.os }}
 
@@ -47,12 +52,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-
-    - name: Set up clang
-      if: matrix.configurations.os == "ubuntu-latest"
-      shell: bash
-      run: |
-        clang --version 
 
     - name: Set reusable strings
       # Turn repeated input strings (such as the build output directory) into step outputs. These step outputs can be used throughout the workflow file.
