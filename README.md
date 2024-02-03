@@ -1,5 +1,9 @@
 # i18n
 
+![build status](https://github.com/stefandevai/i18n/actions/workflows/linux.yml/badge.svg)
+![build status](https://github.com/stefandevai/i18n/actions/workflows/macos.yml/badge.svg)
+![build status](https://github.com/stefandevai/i18n/actions/workflows/windows.yml/badge.svg)
+
 Easy to use and customizable internationalization library.
 
 # Features
