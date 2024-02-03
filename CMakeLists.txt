@@ -14,7 +14,7 @@ add_library(
 )
 add_library(i18n::i18n ALIAS i18n)
 
-target_compile_features(i18n INTERFACE cxx_std_17)
+target_compile_features(i18n INTERFACE cxx_std_20)
 
 if (MSVC)
     target_compile_options(${PROJECT_NAME} INTERFACE /W4)

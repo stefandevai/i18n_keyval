@@ -11,9 +11,9 @@ namespace i18n
     template<typename T>
     translator(T&& translator_) : _translator(std::make_shared<model<T>>(std::forward<T>(translator_))) {}
 
-    void initialize()
+    void set_locale(const std::string& locale)
     {
-      return _translator->initialize();
+      return _translator->set_locale(locale);
     }
 
     std::string translate(const char* composed_key, const std::size_t length)
@@ -21,24 +21,24 @@ namespace i18n
       return _translator->translate(composed_key, length);
     }
 
-    struct concept
+    struct base
     {
-      virtual ~concept() = default;
-      virtual void initialize() = 0;
+      virtual ~base() = default;
+      virtual void set_locale(const std::string& locale) = 0;
       virtual std::string translate(const char* composed_key, const std::size_t length) const = 0;
     };
 
     template<typename T>
-    struct model final : concept
+    struct model final : base
     {
       model(T object_) : _object(std::move(object_)) {}
 
-      void initialize() override
+      void set_locale(const std::string& locale)
       {
-        return _object.initialize();
+        return _object.set_locale(locale);
       }
 
-      std::string translate(const char* composed_key, const std::size_t length) const override
+      std::string translate(const char* composed_key, const std::size_t length) const
       {
         return _object.translate(composed_key, length);
       }
@@ -48,13 +48,13 @@ namespace i18n
     };
 
   private:
-    std::shared_ptr<concept> _translator;
+    std::shared_ptr<base> _translator;
   };
 
   class registry
   {
     public:
-      std::string locale = "en";
+      std::string locale = "";
 
       registry() = default;
       registry(const registry&) = delete;
@@ -63,7 +63,7 @@ namespace i18n
       void initialize_translator(std::shared_ptr<translator> translator_)
       {
         _translator = std::move(translator_);
-        _translator->initialize();
+        _translator->set_locale(locale);
       }
 
       std::string translate(const char* composed_key, const std::size_t length) 
@@ -71,10 +71,14 @@ namespace i18n
         return _translator->translate(composed_key, length);
       }
 
-      void set_locale(const std::string& locale_)
+      void set_locale(std::string locale_)
       {
-        locale = locale_;
-        _translator->initialize();
+        locale = std::move(locale_);
+
+        if (_translator != nullptr)
+        {
+          _translator->set_locale(locale);
+        }
       }
 
       static registry& instance()
@@ -84,6 +88,6 @@ namespace i18n
       }
 
     private:
-      std::shared_ptr<translator> _translator;
+      std::shared_ptr<translator> _translator = nullptr;
   };
 }

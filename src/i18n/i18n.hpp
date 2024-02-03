@@ -16,10 +16,10 @@ namespace i18n
     return registry::instance().translate(key.data(), key.size());
   }
 
-  template <typename T>
-  void initialize_translator()
+  template <typename T, typename... Args>
+  void initialize_translator(Args&&... args)
   {
-    auto translator_ = std::make_shared<translator>(T{});
+    auto translator_ = std::make_shared<translator>(T{std::forward<Args>(args)...});
     registry::instance().initialize_translator(std::move(translator_));
   }
 
@@ -28,9 +28,9 @@ namespace i18n
     return registry::instance().locale;
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(std::string locale)
   {
-    registry::instance().set_locale(locale);
+    registry::instance().set_locale(std::move(locale));
   }
 }
 
