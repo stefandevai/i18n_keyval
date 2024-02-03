@@ -10,6 +10,7 @@ add_library(
     src/i18n/registry.hpp
     src/i18n/registry.cpp
     src/i18n/split_iterator.hpp
+    src/i18n/utils.hpp
 )
 add_library(i18n::i18n ALIAS i18n)
 
@@ -23,5 +24,12 @@ endif()
 
 target_include_directories(i18n INTERFACE "src")
 
+add_subdirectory("lib/json")
+
 add_executable(test src/main.cpp)
-target_link_libraries(test PRIVATE i18n::i18n)
+target_link_libraries(
+    test
+    PRIVATE
+    i18n::i18n
+    nlohmann_json::nlohmann_json
+)

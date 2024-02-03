@@ -1,48 +1,37 @@
 #include <iostream>
 #include <i18n/i18n.hpp>
 #include <i18n/split_iterator.hpp>
-
-struct translator
-{
-  std::string translate(const char* key, std::size_t length) const
-  {
-    return std::string(key) + " (from app)\n";
-  }
-};
-
-constexpr char default_delimeter[] = ".";
-
-template<const char* delimeter = default_delimeter>
-struct test
-{
-  void print()
-  {
-    std::cout << "delimeter: " << delimeter << '\n';
-  }
-};
-
+#include <translators/nlohmann_json.hpp>
 
 int main()
 {
   using namespace i18n::literals;
 
-  i18n::initialize_translator<translator>();
+  i18n::initialize_translator<i18n::translators::nlohmann_json>();
 
-  // std::cout << "animals.cat"_t << '\n';
-  // std::cout << i18n::t("animals.cat") << '\n';
+  std::cout << "English:\n";
 
-  i18n::split_iterator it{"animals.felines.cat"};
-  i18n::split_iterator<':'> it2{"animals:felines:cat"};
+  std::cout << "moon"_t << '\n';
+  std::cout << "sun"_t << '\n';
+  std::cout << "colors.black"_t << '\n';
+  std::cout << "colors.red"_t << '\n';
+  std::cout << "animals.felines.cat"_t << '\n';
+  std::cout << "animals.felines.tiger"_t << '\n';
+  std::cout << "animals.reptiles.crocodile"_t << '\n';
+  std::cout << "animals.reptiles.snake"_t << '\n';
 
-  for (; !(*it).empty(); ++it)
-  {
-    std::cout << *it << '\n';
-  }
+  i18n::set_locale("es");
 
-  for (; !(*it2).empty(); ++it2)
-  {
-    std::cout << *it2 << '\n';
-  }
+  std::cout << "\nEspañol:\n";
+
+  std::cout << "moon"_t << '\n';
+  std::cout << "sun"_t << '\n';
+  std::cout << "colors.black"_t << '\n';
+  std::cout << "colors.red"_t << '\n';
+  std::cout << "animals.felines.cat"_t << '\n';
+  std::cout << "animals.felines.tiger"_t << '\n';
+  std::cout << "animals.reptiles.crocodile"_t << '\n';
+  std::cout << "animals.reptiles.snake"_t << '\n';
 
   return 0;
 }
