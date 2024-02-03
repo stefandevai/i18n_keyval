@@ -14,6 +14,8 @@ const std::string default_file_name = "translation";
 
 std::string t(std::string_view key);
 
+std::string t(std::string_view key, std::size_t count);
+
 template <typename T = translators::basic, typename... Args>
 void initialize_translator(Args&&... args)
 {

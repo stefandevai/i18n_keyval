@@ -10,7 +10,8 @@ Easy to use and customizable internationalization library.
 - [x] String literal usage
 - [x] Free function usage
 - [x] Nested json
-- [ ] Plurals
+- [x] Plurals
+- [ ] Plural interpolation
 - [ ] Thread safety
 
 # Translators

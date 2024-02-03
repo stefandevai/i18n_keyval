@@ -135,3 +135,23 @@ TEST_CASE("translator::nlohmann_json (custom directory)", "[translators]")
 
   REQUIRE("moon"_t == "Moon");
 }
+
+TEST_CASE("translator::nlohmann_json (plurals)", "[translators]")
+{
+  using namespace i18n::literals;
+
+  i18n::set_locale("en");
+  i18n::initialize_translator<i18n::translators::nlohmann_json>();
+
+  REQUIRE(i18n::t("moon", 0) == "Moons");
+  REQUIRE(i18n::t("moon", 1) == "Moon");
+  REQUIRE(i18n::t("moon", 2) == "Moons");
+  REQUIRE(i18n::t("moon", 9999) == "Moons");
+
+  i18n::set_locale("es");
+
+  REQUIRE(i18n::t("moon", 0) == "Lunas");
+  REQUIRE(i18n::t("moon", 1) == "Luna");
+  REQUIRE(i18n::t("moon", 2) == "Lunas");
+  REQUIRE(i18n::t("moon", 9999) == "Lunas");
+}
