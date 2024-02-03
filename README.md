@@ -17,7 +17,7 @@ Easy to use and customizable internationalization library.
 # Translators
 - [x] Default using `unordered_map`
 - [x] nlohman/json (json)
-- [ ] rapidjson (json)
+- [x] rapidjson (json)
 - [ ] pugixml (xml)
 - [ ] tinyxml2 (xml)
 - [ ] sol3 (lua)

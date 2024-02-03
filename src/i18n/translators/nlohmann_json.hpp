@@ -3,13 +3,9 @@
 #include <filesystem>
 #include <nlohmann/json.hpp>
 
+#include "i18n/util/extension.hpp"
 #include "i18n/util/file.hpp"
 #include "i18n/util/split_iterator.hpp"
-
-namespace
-{
-const std::string json_extension = ".json";
-}
 
 namespace i18n::translators
 {
@@ -28,7 +24,7 @@ class nlohmann_json
       return;
     }
 
-    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + json_extension);
+    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::json);
     auto json_string = i18n::util::read_file(full_path);
     _object = nlohmann::json::parse(std::move(json_string));
   }
