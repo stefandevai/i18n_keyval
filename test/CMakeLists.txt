@@ -115,6 +115,14 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(pugixml)
 
+message(STATUS "Downloading tinyxml2")
+FetchContent_Declare(
+    tinyxml2
+    GIT_REPOSITORY https://github.com/leethomason/tinyxml2.git
+    GIT_TAG 321ea883b7190d4e85cae5512a12e5eaa8f8731f # v10.0.0
+)
+FetchContent_MakeAvailable(tinyxml2)
+
 message(STATUS "Copying data files")
 file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
@@ -130,6 +138,7 @@ SET(
     translators/rapidjson.cpp
     translators/sol2.cpp
     translators/pugixml.cpp
+    translators/tinyxml2.cpp
 )
 
 include_directories(${RAPIDJSON_INCLUDE_DIRS} ${LUA_INCLUDE_DIRS})
@@ -146,6 +155,7 @@ target_link_libraries(
     lua::lua
     sol2::sol2
     pugixml::pugixml
+    tinyxml2::tinyxml2
 )
 
 add_test(NAME i18n_tests COMMAND i18n_tests)

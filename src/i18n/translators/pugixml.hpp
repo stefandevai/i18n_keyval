@@ -29,7 +29,7 @@ class pugixml
   {
     if (length == 0)
     {
-      return "";
+      return std::string{composed_key, length};
     }
 
     auto nodes = _document.select_nodes(composed_key);

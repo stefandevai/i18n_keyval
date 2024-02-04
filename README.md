@@ -20,7 +20,7 @@ Easy to use and customizable internationalization library.
 - [x] rapidjson (json)
 - [x] sol2 (lua)
 - [x] pugixml (xml)
-- [ ] tinyxml2 (xml)
+- [x] tinyxml2 (xml)
 
 # Usage
 ## Default translator
