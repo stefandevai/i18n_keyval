@@ -6,7 +6,7 @@ namespace i18n::util
 {
 std::string read_file(const std::filesystem::path filepath)
 {
-  const auto filepath_str = filepath.string();
+  const auto& filepath_str = filepath.string();
   FILE* file = std::fopen(filepath_str.c_str(), "rt");
 
   if (file == nullptr)

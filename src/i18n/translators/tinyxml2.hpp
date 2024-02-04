@@ -31,8 +31,9 @@ class tinyxml2
     }
 
     const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::xml);
+    const auto& path_str = full_path.string();
 
-    auto res = _document.LoadFile(full_path.c_str());
+    auto res = _document.LoadFile(path_str.c_str());
 
     if (res != ::tinyxml2::XML_SUCCESS)
     {
