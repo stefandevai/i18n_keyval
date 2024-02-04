@@ -18,10 +18,20 @@ class sol2
   {
     if (locale.empty())
     {
+      _lua["translations"] = sol::lua_nil;
       return;
     }
 
-    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::lua);
+    const std::filesystem::path locale_directory = _directory_path / locale;
+
+    if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
+    {
+      _lua["translations"] = sol::lua_nil;
+      return;
+    }
+
+    const std::filesystem::path full_path = locale_directory / (default_file_name + util::extension::lua);
+
     auto lua_string = i18n::util::read_file(full_path);
     _lua.script(lua_string);
   }

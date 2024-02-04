@@ -124,6 +124,36 @@ TEST_CASE("translator::tinyxml2", "[translators]")
   REQUIRE(i18n::t("animals/reptiles/crocodile") == "Crocodile");
   REQUIRE(i18n::t("animals/reptiles/snake") == "Snake");
   REQUIRE(i18n::t("animals/reptiles/lizard") == "animals/reptiles/lizard");
+
+  i18n::set_locale("fr");
+
+  REQUIRE("moon"_t == "moon");
+  REQUIRE("sun"_t == "sun");
+  REQUIRE("star"_t == "star");
+  REQUIRE("colors/black"_t == "colors/black");
+  REQUIRE("colors/red"_t == "colors/red");
+  REQUIRE("colors/white"_t == "colors/white");
+  REQUIRE("animals/felines/cat"_t == "animals/felines/cat");
+  REQUIRE("animals/felines/tiger"_t == "animals/felines/tiger");
+  REQUIRE("animals/felines/jaguar"_t == "animals/felines/jaguar");
+  REQUIRE("animals/reptiles/crocodile"_t == "animals/reptiles/crocodile");
+  REQUIRE("animals/reptiles/snake"_t == "animals/reptiles/snake");
+  REQUIRE("animals/reptiles/lizard"_t == "animals/reptiles/lizard");
+  REQUIRE(""_t == "");
+
+  REQUIRE(i18n::t("moon") == "moon");
+  REQUIRE(i18n::t("sun") == "sun");
+  REQUIRE(i18n::t("star") == "star");
+  REQUIRE(i18n::t("colors/black") == "colors/black");
+  REQUIRE(i18n::t("colors/red") == "colors/red");
+  REQUIRE(i18n::t("colors/white") == "colors/white");
+  REQUIRE(i18n::t("animals/felines/cat") == "animals/felines/cat");
+  REQUIRE(i18n::t("animals/felines/tiger") == "animals/felines/tiger");
+  REQUIRE(i18n::t("animals/felines/jaguar") == "animals/felines/jaguar");
+  REQUIRE(i18n::t("animals/reptiles/crocodile") == "animals/reptiles/crocodile");
+  REQUIRE(i18n::t("animals/reptiles/snake") == "animals/reptiles/snake");
+  REQUIRE(i18n::t("animals/reptiles/lizard") == "animals/reptiles/lizard");
+  REQUIRE(i18n::t("") == "");
 }
 
 TEST_CASE("translator::tinyxml2 (custom directory)", "[translators]")

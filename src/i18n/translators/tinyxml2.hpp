@@ -36,7 +36,7 @@ class tinyxml2
 
     if (res != ::tinyxml2::XML_SUCCESS)
     {
-      printf("Failed to load file %s\n", _document.ErrorStr());
+      // printf("Failed to load file %s\n", _document.ErrorStr());
       return;
     }
   }

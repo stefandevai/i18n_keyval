@@ -21,10 +21,20 @@ class nlohmann_json
   {
     if (locale.empty())
     {
+      _object = nlohmann::json{};
       return;
     }
 
-    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::json);
+    const std::filesystem::path locale_directory = _directory_path / locale;
+
+    if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
+    {
+      _object = nlohmann::json{};
+      return;
+    }
+
+    const std::filesystem::path full_path = locale_directory / (default_file_name + util::extension::json);
+
     auto json_string = i18n::util::read_file(full_path);
     _object = nlohmann::json::parse(std::move(json_string));
   }
