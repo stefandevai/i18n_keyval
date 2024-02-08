@@ -12,26 +12,27 @@ const std::filesystem::path default_directory_name{"translations"};
 
 const std::string default_file_name = "translation";
 
-std::string t(std::string_view key);
+[[nodiscard]] std::string t(std::string_view key_) noexcept;
 
-std::string t(std::string_view key, std::size_t count);
+
+[[nodiscard]] std::string t(std::string_view key_, std::size_t count_) noexcept;
 
 template <typename T = translators::basic, typename... Args>
-void initialize_translator(Args&&... args)
+void initialize_translator(Args&&... args_)
 {
-  auto translator_ = std::make_shared<translator>(T{std::forward<Args>(args)...});
+  auto translator_ = std::make_shared<translator>(T{std::forward<Args>(args_)...});
   registry::instance().initialize_translator(std::move(translator_));
 }
 
-std::string locale();
+std::string locale() noexcept;
 
-void set_locale(std::string locale);
+void set_locale(std::string locale_);
 }  // namespace i18n
 
 namespace i18n::literals
 {
-inline std::string operator""_t(const char* nested_key, std::size_t length)
+[[nodiscard]] inline std::string operator""_t(const char* nested_key_, std::size_t length_) noexcept
 {
-  return i18n::registry::instance().translate(nested_key, length);
+  return i18n::registry::instance().translate(nested_key_, length_);
 }
 }  // namespace i18n::literals

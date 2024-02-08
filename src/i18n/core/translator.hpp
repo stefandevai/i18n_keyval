@@ -13,21 +13,21 @@ class translator
   {
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    return _translator->set_locale(locale);
+    return _translator->set_locale(locale_);
   }
 
-  std::string translate(const char* composed_key, const std::size_t length)
+  std::string translate(const char* composed_key_, const std::size_t length_)
   {
-    return _translator->translate(composed_key, length);
+    return _translator->translate(composed_key_, length_);
   }
 
   struct base
   {
     virtual ~base() = default;
-    virtual void set_locale(const std::string& locale) = 0;
-    virtual std::string translate(const char* composed_key, const std::size_t length) const = 0;
+    virtual void set_locale(const std::string& locale_) = 0;
+    virtual std::string translate(const char* composed_key_, const std::size_t length_) const = 0;
   };
 
   template <typename T>
@@ -35,14 +35,14 @@ class translator
   {
     model(T object_) : _object(std::move(object_)) {}
 
-    void set_locale(const std::string& locale)
+    void set_locale(const std::string& locale_)
     {
-      return _object.set_locale(locale);
+      return _object.set_locale(locale_);
     }
 
-    std::string translate(const char* composed_key, const std::size_t length) const
+    std::string translate(const char* composed_key_, const std::size_t length_) const
     {
-      return _object.translate(composed_key, length);
+      return _object.translate(composed_key_, length_);
     }
 
    private:

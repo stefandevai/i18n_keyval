@@ -21,6 +21,7 @@ Easy to use and customizable internationalization library.
 - [x] sol2 (lua)
 - [x] pugixml (xml)
 - [x] tinyxml2 (xml)
+- [ ] simdjson (json)
 
 # Usage
 ## Default translator

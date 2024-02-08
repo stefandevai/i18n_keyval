@@ -17,9 +17,9 @@ class registry
   registry& operator=(const registry&) = delete;
 
   void initialize_translator(std::shared_ptr<translator> translator_);
-  std::string translate(const char* composed_key, const std::size_t length);
-  void set_locale(std::string locale_);
-  static registry& instance();
+  [[nodiscard]] std::string translate(const char* composed_key_, const std::size_t length_) noexcept;
+  void set_locale(std::string locale_) noexcept;
+  [[nodiscard]] static registry& instance() noexcept;
 
  private:
   std::shared_ptr<translator> _translator = nullptr;
