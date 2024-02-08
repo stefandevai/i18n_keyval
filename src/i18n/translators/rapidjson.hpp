@@ -2,6 +2,7 @@
 
 #include <filesystem>
 
+#include "i18n/core/common.hpp"
 #include "i18n/util/extension.hpp"
 #include "i18n/util/file.hpp"
 #include "i18n/util/split_iterator.hpp"
@@ -21,6 +22,7 @@ class rapidjson
   {
     if (locale_.empty())
     {
+      throw_i18n_exception("Locale is empty");
       _document.SetObject();
       return;
     }
@@ -29,6 +31,7 @@ class rapidjson
 
     if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
     {
+      throw_i18n_exception("Locale not found");
       _document.SetObject();
       return;
     }

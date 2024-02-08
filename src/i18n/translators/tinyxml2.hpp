@@ -4,6 +4,7 @@
 
 #include <filesystem>
 
+#include "i18n/core/common.hpp"
 #include "i18n/i18n.hpp"
 #include "i18n/util/extension.hpp"
 #include "i18n/util/split_iterator.hpp"
@@ -27,6 +28,7 @@ class tinyxml2
   {
     if (locale_.empty())
     {
+      throw_i18n_exception("Locale is empty");
       return;
     }
 
@@ -38,6 +40,7 @@ class tinyxml2
     if (res != ::tinyxml2::XML_SUCCESS)
     {
       // printf("Failed to load file %s\n", _document.ErrorStr());
+      throw_i18n_exception("Locale not found");
       return;
     }
   }

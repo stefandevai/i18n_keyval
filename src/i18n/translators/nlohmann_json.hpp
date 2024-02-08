@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <nlohmann/json.hpp>
 
+#include "i18n/core/common.hpp"
 #include "i18n/util/extension.hpp"
 #include "i18n/util/file.hpp"
 #include "i18n/util/split_iterator.hpp"
@@ -21,6 +22,7 @@ class nlohmann_json
   {
     if (locale_.empty())
     {
+      throw_i18n_exception("Locale is empty");
       _object = nlohmann::json{};
       return;
     }
@@ -29,6 +31,7 @@ class nlohmann_json
 
     if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
     {
+      throw_i18n_exception("Locale not found");
       _object = nlohmann::json{};
       return;
     }

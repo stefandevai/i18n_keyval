@@ -3,6 +3,7 @@
 #include <filesystem>
 #include <pugixml.hpp>
 
+#include "i18n/core/common.hpp"
 #include "i18n/util/extension.hpp"
 
 namespace i18n::translators
@@ -18,10 +19,20 @@ class pugixml
   {
     if (locale_.empty())
     {
+      throw_i18n_exception("Locale not found");
+      _document.load_file("");
       return;
     }
 
     const std::filesystem::path full_path = _directory_path / locale_ / (default_file_name + util::extension::xml);
+
+    if (!std::filesystem::exists(full_path))
+    {
+      throw_i18n_exception("Locale not found");
+      _document.load_file("");
+      return;
+    }
+
     _document.load_file(full_path.c_str());
   }
 

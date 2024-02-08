@@ -3,6 +3,8 @@
 #include <string>
 #include <unordered_map>
 
+#include "i18n/core/common.hpp"
+
 namespace i18n
 {
 using translation_table = std::unordered_map<std::string, std::string>;
@@ -20,6 +22,7 @@ class basic
   {
     if (_translations.find(locale_) == _translations.end())
     {
+      throw_i18n_exception("Locale not found");
       return;
     }
 
