@@ -14,7 +14,6 @@ const std::string default_file_name = "translation";
 
 [[nodiscard]] std::string t(std::string_view key_) noexcept;
 
-
 [[nodiscard]] std::string t(std::string_view key_, std::size_t count_) noexcept;
 
 template <typename T = translators::basic, typename... Args>
