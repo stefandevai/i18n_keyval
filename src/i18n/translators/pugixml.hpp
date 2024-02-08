@@ -14,29 +14,29 @@ class pugixml
   {
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (locale.empty())
+    if (locale_.empty())
     {
       return;
     }
 
-    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::xml);
+    const std::filesystem::path full_path = _directory_path / locale_ / (default_file_name + util::extension::xml);
     _document.load_file(full_path.c_str());
   }
 
-  std::string translate(const char* composed_key, std::size_t length) const
+  std::string translate(const char* composed_key_, std::size_t length_) const noexcept
   {
-    if (length == 0)
+    if (length_ == 0)
     {
-      return std::string{composed_key, length};
+      return std::string{composed_key_, length_};
     }
 
-    auto nodes = _document.select_nodes(composed_key);
+    auto nodes = _document.select_nodes(composed_key_);
 
     if (nodes.empty())
     {
-      return std::string{composed_key, length};
+      return std::string{composed_key_, length_};
     }
 
     return nodes[0].node().first_child().value();

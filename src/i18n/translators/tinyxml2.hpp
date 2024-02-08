@@ -17,20 +17,20 @@ class tinyxml2
   {
   }
 
-  tinyxml2(const tinyxml2& rhs)
+  tinyxml2(const tinyxml2& rhs_)
   {
-    _directory_path = rhs._directory_path;
-    rhs._document.DeepCopy(&_document);
+    _directory_path = rhs_._directory_path;
+    rhs_._document.DeepCopy(&_document);
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (locale.empty())
+    if (locale_.empty())
     {
       return;
     }
 
-    const std::filesystem::path full_path = _directory_path / locale / (default_file_name + util::extension::xml);
+    const std::filesystem::path full_path = _directory_path / locale_ / (default_file_name + util::extension::xml);
     const auto& path_str = full_path.string();
 
     auto res = _document.LoadFile(path_str.c_str());
@@ -42,14 +42,15 @@ class tinyxml2
     }
   }
 
-  std::string translate(const char* composed_key, std::size_t length) const
+  std::string translate(const char* composed_key_, std::size_t length_) const noexcept
   {
-    if (length == 0)
+    std::string_view view{composed_key_, length_};
+
+    if (length_ == 0)
     {
-      return std::string{composed_key, length};
+      return std::string{view};
     }
 
-    std::string_view view{composed_key, length};
     i18n::util::split_iterator<'/'> it{view};
     std::string_view key = *it;
     std::string key_str{key};

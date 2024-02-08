@@ -17,15 +17,15 @@ class nlohmann_json
   {
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (locale.empty())
+    if (locale_.empty())
     {
       _object = nlohmann::json{};
       return;
     }
 
-    const std::filesystem::path locale_directory = _directory_path / locale;
+    const std::filesystem::path locale_directory = _directory_path / locale_;
 
     if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
     {
@@ -39,9 +39,9 @@ class nlohmann_json
     _object = nlohmann::json::parse(std::move(json_string));
   }
 
-  std::string translate(const char* composed_key, std::size_t length) const
+  std::string translate(const char* composed_key_, std::size_t length_) const noexcept
   {
-    std::string_view view{composed_key, length};
+    std::string_view view{composed_key_, length_};
     auto* current_object = &_object;
 
     for (i18n::util::split_iterator it{view}; !(*it).empty(); ++it)

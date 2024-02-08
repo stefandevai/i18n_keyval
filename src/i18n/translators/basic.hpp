@@ -16,19 +16,19 @@ class basic
  public:
   basic(translations translations_) : _translations(std::move(translations_)) {}
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (_translations.find(locale) == _translations.end())
+    if (_translations.find(locale_) == _translations.end())
     {
       return;
     }
 
-    _values = &_translations.at(locale);
+    _values = &_translations.at(locale_);
   }
 
-  std::string translate(const char* key, std::size_t length) const
+  std::string translate(const char* key_, std::size_t length_) const noexcept
   {
-    std::string_view view{key, length};
+    std::string_view view{key_, length_};
 
     if (_values == nullptr)
     {
@@ -37,12 +37,12 @@ class basic
 
     const auto& values = *_values;
 
-    if (values.find(key) == values.end())
+    if (values.find(key_) == values.end())
     {
       return std::string{view};
     }
 
-    return values.at(key);
+    return values.at(key_);
   }
 
  private:

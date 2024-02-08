@@ -17,15 +17,15 @@ class rapidjson
   {
   }
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (locale.empty())
+    if (locale_.empty())
     {
       _document.SetObject();
       return;
     }
 
-    const std::filesystem::path locale_directory = _directory_path / locale;
+    const std::filesystem::path locale_directory = _directory_path / locale_;
 
     if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
     {
@@ -39,9 +39,9 @@ class rapidjson
     _document.Parse(json_string.c_str());
   }
 
-  std::string translate(const char* composed_key, std::size_t length) const
+  std::string translate(const char* composed_key_, std::size_t length_) const noexcept
   {
-    std::string_view view{composed_key, length};
+    std::string_view view{composed_key_, length_};
     auto member_iterator = _document.MemberEnd();
     bool first_time = true;
 

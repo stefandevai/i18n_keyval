@@ -14,15 +14,15 @@ class sol2
  public:
   sol2(std::filesystem::path directory_path_ = default_directory_name) : _directory_path(std::move(directory_path_)) {}
 
-  void set_locale(const std::string& locale)
+  void set_locale(const std::string& locale_)
   {
-    if (locale.empty())
+    if (locale_.empty())
     {
       _lua["translations"] = sol::lua_nil;
       return;
     }
 
-    const std::filesystem::path locale_directory = _directory_path / locale;
+    const std::filesystem::path locale_directory = _directory_path / locale_;
 
     if (!std::filesystem::exists(locale_directory) || !std::filesystem::is_directory(locale_directory))
     {
@@ -36,9 +36,9 @@ class sol2
     _lua.script(lua_string);
   }
 
-  std::string translate(const char* composed_key, std::size_t length) const
+  std::string translate(const char* composed_key_, std::size_t length_) const noexcept
   {
-    std::string_view view{composed_key, length};
+    std::string_view view{composed_key_, length_};
     i18n::util::split_iterator it{view};
     auto current_object = _lua.get<sol::table>("translations");
 
