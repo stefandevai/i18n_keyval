@@ -16,6 +16,7 @@ jobs:
         build_type: [Release]
         c_compiler: [cl]
         build_tests: [On]
+        exceptions: [Off]
         include:
           - os: windows-latest
             c_compiler: cl
@@ -37,6 +38,7 @@ jobs:
         -DCMAKE_C_COMPILER=${{ matrix.c_compiler }}
         -DCMAKE_BUILD_TYPE=${{ matrix.build_type }}
         -DI18N_BUILD_TESTS=${{ matrix.build_tests }}
+        -DI18N_EXCEPTIONS=${{ matrix.exceptions }}
         -S ${{ github.workspace }}
 
     - name: Build
