@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/i18n.hpp>
-#include <i18n/translators/tinyxml2.hpp>
+#include <i18n_keyval/i18n.hpp>
+#include <i18n_keyval/translators/tinyxml2.hpp>
 
 TEST_CASE("translator::tinyxml2", "[translators]")
 {

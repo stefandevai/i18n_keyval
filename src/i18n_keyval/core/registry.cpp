@@ -1,4 +1,4 @@
-#include "i18n/core/registry.hpp"
+#include "i18n_keyval/core/registry.hpp"
 
 namespace i18n
 {

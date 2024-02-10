@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/core/api.hpp>
+#include <i18n_keyval/core/api.hpp>
 #include <string>
 #include <unordered_map>
 

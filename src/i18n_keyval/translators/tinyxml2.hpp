@@ -4,10 +4,10 @@
 
 #include <filesystem>
 
-#include "i18n/core/common.hpp"
-#include "i18n/i18n.hpp"
-#include "i18n/util/extension.hpp"
-#include "i18n/util/split_iterator.hpp"
+#include "i18n_keyval/core/common.hpp"
+#include "i18n_keyval/i18n.hpp"
+#include "i18n_keyval/util/extension.hpp"
+#include "i18n_keyval/util/split_iterator.hpp"
 
 namespace i18n::translators
 {

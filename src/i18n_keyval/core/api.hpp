@@ -3,8 +3,8 @@
 #include <filesystem>
 #include <string>
 
-#include "i18n/core/registry.hpp"
-#include "i18n/translators/basic.hpp"
+#include "i18n_keyval/core/registry.hpp"
+#include "i18n_keyval/translators/basic.hpp"
 
 namespace i18n
 {

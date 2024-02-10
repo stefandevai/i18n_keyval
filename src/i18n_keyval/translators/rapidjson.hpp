@@ -2,10 +2,10 @@
 
 #include <filesystem>
 
-#include "i18n/core/common.hpp"
-#include "i18n/util/extension.hpp"
-#include "i18n/util/file.hpp"
-#include "i18n/util/split_iterator.hpp"
+#include "i18n_keyval/core/common.hpp"
+#include "i18n_keyval/util/extension.hpp"
+#include "i18n_keyval/util/file.hpp"
+#include "i18n_keyval/util/split_iterator.hpp"
 #include "rapidjson/document.h"
 
 namespace i18n::translators

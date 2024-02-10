@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/util/file.hpp>
+#include <i18n_keyval/util/file.hpp>
 
 TEST_CASE("reading file", "[core]")
 {

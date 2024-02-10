@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/i18n.hpp>
-#include <i18n/translators/pugixml.hpp>
+#include <i18n_keyval/i18n.hpp>
+#include <i18n_keyval/translators/pugixml.hpp>
 
 TEST_CASE("translator::pugixml", "[translators]")
 {

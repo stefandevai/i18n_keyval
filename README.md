@@ -1,8 +1,8 @@
-# i18n
+# i18n_keyval
 
-![build status](https://github.com/stefandevai/i18n/actions/workflows/linux.yml/badge.svg)
-![build status](https://github.com/stefandevai/i18n/actions/workflows/macos.yml/badge.svg)
-![build status](https://github.com/stefandevai/i18n/actions/workflows/windows.yml/badge.svg)
+![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/linux.yml/badge.svg)
+![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/macos.yml/badge.svg)
+![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/windows.yml/badge.svg)
 
 Easy to use and customizable internationalization library.
 
@@ -30,8 +30,8 @@ You need to provide a `i18n::translations` object containing all your locales wi
 
 **Example:**
 ```cpp
-#include <i18n/i18n.hpp>
-#include <i18n/translators/basic.hpp>
+#include <i18n_keyval/i18n.hpp>
+#include <i18n_keyval/translators/basic.hpp>
 
 using namespace i18n::literals;
 
@@ -83,8 +83,8 @@ Built-in [nlohmann/json](https://github.com/nlohmann/json) translator. You need 
 }
 ```
 ```cpp
-#include <i18n/i18n.hpp>
-#include <i18n/translators/nlohmann_json.hpp>
+#include <i18n_keyval/i18n.hpp>
+#include <i18n_keyval/translators/nlohmann_json.hpp>
 
 using namespace i18n::literals;
 
@@ -115,7 +115,7 @@ To use a custom translator, you have to provide any class that implements a `set
 
 **Example:**
 ```cpp
-#include <i18n/i18n.hpp>
+#include <i18n_keyval/i18n.hpp>
 
 using namespace i18n::literals;
 

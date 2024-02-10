@@ -1,5 +1,5 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/util/split_iterator.hpp>
+#include <i18n_keyval/util/split_iterator.hpp>
 
 TEST_CASE("split_iterator", "[core]")
 {

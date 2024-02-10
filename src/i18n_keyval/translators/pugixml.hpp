@@ -3,8 +3,8 @@
 #include <filesystem>
 #include <pugixml.hpp>
 
-#include "i18n/core/common.hpp"
-#include "i18n/util/extension.hpp"
+#include "i18n_keyval/core/common.hpp"
+#include "i18n_keyval/util/extension.hpp"
 
 namespace i18n::translators
 {

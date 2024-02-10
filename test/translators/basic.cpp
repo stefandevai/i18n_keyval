@@ -1,6 +1,6 @@
 #include <catch2/catch_test_macros.hpp>
-#include <i18n/i18n.hpp>
-#include <i18n/translators/basic.hpp>
+#include <i18n_keyval/i18n.hpp>
+#include <i18n_keyval/translators/basic.hpp>
 
 TEST_CASE("translator::basic", "[translators]")
 {

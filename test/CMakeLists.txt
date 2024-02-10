@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.19)
 
-project(i18n_tests CXX)
+project(i18n_keyval_tests CXX)
 include(CTest)
 
 enable_testing()
@@ -128,7 +128,7 @@ file(COPY ${CMAKE_SOURCE_DIR}/test/data/translations DESTINATION ${CMAKE_CURRENT
 file(COPY ${CMAKE_SOURCE_DIR}/test/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
 SET(
-    I18N_TEST_SOURCES
+    I18N_KEYVAL_TEST_SOURCES
     core/api.cpp
     core/registry.cpp
     util/split_iterator.cpp
@@ -143,12 +143,12 @@ SET(
 
 include_directories(${RAPIDJSON_INCLUDE_DIRS} ${LUA_INCLUDE_DIRS})
 
-add_executable(i18n_tests ${I18N_TEST_SOURCES})
+add_executable(i18n_keyval_tests ${I18N_KEYVAL_TEST_SOURCES})
 
 target_link_libraries(
-    i18n_tests
+    i18n_keyval_tests
     PRIVATE
-    i18n::i18n
+    i18n_keyval::i18n_keyval
     nlohmann_json::nlohmann_json
     Catch2::Catch2WithMain
     RapidJSON
@@ -158,4 +158,4 @@ target_link_libraries(
     tinyxml2::tinyxml2
 )
 
-add_test(NAME i18n_tests COMMAND i18n_tests)
+add_test(NAME i18n_keyval_tests COMMAND i18n_keyval_tests)
