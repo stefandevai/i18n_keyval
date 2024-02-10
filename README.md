@@ -6,23 +6,6 @@
 
 Easy to use and customizable internationalization library.
 
-# Features
-- [x] String literal usage
-- [x] Free function usage
-- [x] Nested json
-- [x] Plurals
-- [x] Plural interpolation
-- [ ] Thread safety
-
-# Translators
-- [x] Default using `unordered_map`
-- [x] nlohman/json (json)
-- [x] rapidjson (json)
-- [x] sol2 (lua)
-- [x] pugixml (xml)
-- [x] tinyxml2 (xml)
-- [ ] simdjson (json)
-
 # Usage
 ## Default translator
 
@@ -159,3 +142,18 @@ std::cout << i18n::t("moon") << '\n';
 Moon
 Luna
 ```
+
+# Features
+- String literal usage
+- Free function usage
+- Nested json
+- Plurals
+- Plural interpolation
+
+# Translators
+- Default (using `unordered_map`)
+- nlohman/json (json)
+- rapidjson (json)
+- sol2 (lua)
+- pugixml (xml)
+- tinyxml2 (xml)
