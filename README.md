@@ -4,7 +4,7 @@
 ![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/macos.yml/badge.svg)
 ![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/windows.yml/badge.svg)
 
-Easy to use and customizable internationalization library.
+Easy to use and customizable internationalization library. The core library has no external dependencies. You can, however, use a custom translator to provide translated strings using xml, json, lua or any other method you want using an external library. Custom translators for some known libraries are already provided.
 
 # Usage
 ## Default translator
