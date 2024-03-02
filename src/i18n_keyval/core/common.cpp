@@ -1,5 +1,7 @@
 #include "i18n_keyval/core/common.hpp"
 
+#include <utility>
+
 namespace i18n
 {
 i18n_exception::i18n_exception(const char* message_)
