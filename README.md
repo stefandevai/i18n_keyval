@@ -4,24 +4,7 @@
 ![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/macos.yml/badge.svg)
 ![build status](https://github.com/stefandevai/i18n_keyval/actions/workflows/windows.yml/badge.svg)
 
-Easy to use and customizable internationalization library.
-
-# Features
-- [x] String literal usage
-- [x] Free function usage
-- [x] Nested json
-- [x] Plurals
-- [x] Plural interpolation
-- [ ] Thread safety
-
-# Translators
-- [x] Default using `unordered_map`
-- [x] nlohman/json (json)
-- [x] rapidjson (json)
-- [x] sol2 (lua)
-- [x] pugixml (xml)
-- [x] tinyxml2 (xml)
-- [ ] simdjson (json)
+Easy to use and customizable internationalization library. The core library has no external dependencies. You can, however, use a custom translator to provide translated strings using xml, json, lua or any other method you want using an external library. Custom translators for some known libraries are already provided.
 
 # Usage
 ## Default translator
@@ -159,3 +142,18 @@ std::cout << i18n::t("moon") << '\n';
 Moon
 Luna
 ```
+
+# Features
+- String literal usage
+- Free function usage
+- Nested json
+- Plurals
+- Plural interpolation
+
+# Translators
+- Default (using `unordered_map`)
+- nlohman/json (json)
+- rapidjson (json)
+- sol2 (lua)
+- pugixml (xml)
+- tinyxml2 (xml)
